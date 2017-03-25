@@ -21,19 +21,24 @@ def BuildOrder(G):
     order = []
     for node in G.nodes:
         if node.state == State.UNVISITED:
-            DFS(node, order)
+            if not DFS(node, order):
+                print "Not a DAG"
+                return
     for i in range(len(order)-1, -1, -1):
         print order[i],
 
 def DFS(root, order):
-    if root is None:
-        return
     root.state = State.VISITING
     for node in root.adj:
         if node.state == State.UNVISITED:
-            DFS(node, order)
+            if not DFS(node, order):
+                return False
+        # cycle
+        elif node.state == State.VISITING:
+            return False
     root.state = State.VISITED
     order.append(root)
+    return True
 
 if __name__ == '__main__':
     na = Node('a')
@@ -44,6 +49,7 @@ if __name__ == '__main__':
     nf = Node('f')
     na.adj = [nd]
     nb.adj = [nd]
+    #nc.adj = [na]
     nd.adj = [nc]
     nf.adj = [na, nb]
     G = Graph()
