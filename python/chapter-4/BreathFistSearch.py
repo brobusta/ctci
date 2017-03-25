@@ -20,13 +20,13 @@ def BreathFistSearch(root):
     queue.add(root)
     while queue.isEmpty() is False:
         node = queue.remove()
-        visit(node)
-        node.state = State.VISITED
         for child in node.adj:
             if child.state is State.UNVISITED:
                 child.state = State.VISITING
                 queue.add(child)
-
+        visit(node)
+        node.state = State.VISITED
+ 
 def visit(node):
     print node,
 
