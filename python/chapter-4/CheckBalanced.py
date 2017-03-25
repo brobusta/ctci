@@ -1,3 +1,5 @@
+import sys
+
 class TreeNode(object):
     def __init__(self, data = None, left = None, right = None):
         self.data = data
@@ -8,18 +10,22 @@ class TreeNode(object):
 
 def CheckBalanced(root):
     height, balanced = CalHeight(root)
+    print "height =",height
     return balanced
 
 def CalHeight(root):
     if root is None:
         return -1, True
     hLeft, leftBalanced = CalHeight(root.left)
+    if not leftBalanced:
+        return (-sys.maxint-1), False
     hRight, rightBalanced = CalHeight(root.right)
+    if not rightBalanced:
+        return (-sys.maxint-1), False
     h = max(hLeft, hRight) + 1
-    b = leftBalanced and rightBalanced
     if abs(hLeft - hRight) > 1:
-        b = False
-    return h, b
+        return (-sys.maxint-1), False
+    return h, True
 
 if __name__ == '__main__':
     n1 = TreeNode(1)
