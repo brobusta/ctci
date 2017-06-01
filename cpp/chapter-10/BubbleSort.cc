@@ -13,9 +13,7 @@ void Sort(vector<int>& arr) {
     changed = false;
     for (int i = 1; i < size; i++) {
       if (arr[i] < arr[i - 1]) {
-        int temp = arr[i];
-        arr[i] = arr[i - 1];
-        arr[i - 1] = temp;
+        swap(arr[i], arr[i-1]);
         changed = true;
       }
     }
