@@ -1,0 +1,29 @@
+=== Standard Deck ===
+
+A deck has 52 cards.
+A card has a suit and a rank.
+Suits are: Club, Diamon, Heart, Spade.
+Rank are: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, King, Queen, Jack.
+Face cards: Jack, Queen, King
+
+=== Blackjack Rule ===
+
+Blackjack is a comparing card game between a player and dealer.
+It is played with one or more decks of 52 cards.
+The objective of the game is to beat the dealer in one of the following ways:
+1. Get 21 points on the player's first two cards (called a "blackjack" or "natural"), without a dealer blackjack.
+2. Reach a final score higher than the dealer without exceeding 21.
+3. Let the dealer draw additional cards until his or her hand exceeds 21.
+
+The player or players are dealt a two-card hand and add together the value of their cards.
+Face cards are counted as 10 points.
+A player and the dealer can count an ace as 1 point or 11 points.
+All other cards are counted as the numeric value shown on the card.
+
+After receiving their first two cards, players have the options:
+1. Hit - take additional card
+2. Stand - No take additional card
+
+The dealer must hit until the cards total 17 or more points.
+
+If the player and dealer have the same total, this is called a "push".
